@@ -17,4 +17,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/topics', 'TopicController@index');
+function resource($router, $url, $model)
+{
+    $router->get($url, $model.'Controller@index');
+    $router->get( $url.'/{id}', $model.'Controller@show');
+    $router->post($url, $model.'Controller@store');
+    $router->put($url.'/{id}', $model.'Controller@update');
+    $router->delete($url.'/{id}', $model.'Controller@destroy');
+}
+
+resource($router, '/topics', 'Topic');
+resource($router, '/users', 'User');
+resource($router, '/posts', 'Post');
