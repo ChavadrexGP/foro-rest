@@ -28,4 +28,4 @@ function resource($router, $url, $model)
 
 resource($router, '/topics', 'Topic');
 resource($router, '/users', 'User');
-resource($router, '/posts', 'Post');
+resource($router, '/posts', 'Post'); 
