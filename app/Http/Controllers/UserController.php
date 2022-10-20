@@ -40,7 +40,7 @@ class UserController extends Controller
         return $user;
     }
 
-    public function destroy($id){
+    public function destroy($id){ 
         $user = User::find($id);
         if(!$user){
             return response()->json(["message"=>"failed"], 404);
@@ -48,4 +48,4 @@ class UserController extends Controller
         $user->delete();
         return response()->json(["message"=>"success"]);
     }
-}
+} 
